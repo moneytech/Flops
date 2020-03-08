@@ -49,19 +49,21 @@ Here is a list of recommended binaries for each processor line.
  - `2017-SkylakePurley` (AVX512-F and AVX512-VL)
     - Intel Skylake Purley (2017)
 
-x64 is strongly recommended, but not required. The benchmark is optimized for 16 SIMD registers and may not compile well on x86.
+x64 is strongly recommended, but not required. The benchmark is optimized for 16 SIMD registers and may not compile well on x86. Likewise, the AVX512 binaries are optimized for 32 SIMD registers.
 
 -----
 
 **How to Compile: (version 3)**
 
 **Windows:**
- 1. Have Visual Studio 2015 installed at the default path.
+ 1. Have Visual Studio 2017 (15.9.0 or later) installed at the default path.
  2. Run (or double-click) on `compile_windows_vsc.cmd`.
- 3. You will need Intel Compiler 2017 to build the AVX512 binaries.
+ 3. You will need Intel Compiler 2019 to build the "16-KnightsLanding" binary.
 
 **Linux:**
  1. Run `compile_linux_gcc.sh`.
+
+ For some of the newer architectures (Zen1 and Skylake AVX-512), you'll need at least gcc 6 to compile for those architectures. You can override the C++ compiler by setting the `CXX` environment variable, e.g., by running the build script as `CXX=g++-7 compile_linux_gcc.sh`.
 
 Precompiled binaries can be found in:
  - `binaries-windows/`
